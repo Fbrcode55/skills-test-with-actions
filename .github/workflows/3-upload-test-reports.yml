@@ -48,7 +48,7 @@ jobs:
 
     # We'll run Ubuntu for performance instead of Mac or Windows.
     runs-on: ubuntu-latest
-    steps:
+    
       - name: Checkout
         uses: actions/checkout@v4
         with:
