@@ -50,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     # We'll need to check out the repository so that we can edit the README.
     # In README.md, switch step 3 for step 4.
-   -name: Update to step 4
+    -name: Update to step 4
            uses:skills/action-update-step@v2
          with:
           token: ${{ secrets.GITHUB_TOKEN }}
