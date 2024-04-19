@@ -48,8 +48,8 @@ jobs:
 
     # We'll run Ubuntu for performance instead of Mac or Windows.
     runs-on: ubuntu-latest
-    
-      - name: Checkout
+    steps:
+      - name: Checkout 
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Let's get all the branches.
@@ -71,17 +71,16 @@ jobs:
           branch_name: ci
           
        #build new
-       build:
-       runs-on: ubuntu-latest
-       steps:
-       - uses: actions/checkout@v4
+          build: 
+          runs-on: ubuntu-latest
+          steps:
+           uses: actions/checkout@v4
 
-       - name: Run markdown lint
-        run: |
-        npm install remark-cli remark-preset-lint-consistent vfile-reporter-json
-        npx remark . --use remark-preset-lint-consistent --report vfile-reporter-json 2> remark-lint-report.json
+          -name: Run markdown lint
+            run:| npm install remark-cli remark-preset-lint-consistent vfile-reporter-json
+                  npx remark . --use remark-preset-lint-consistent --report vfile-reporter-json 2> remark-lint-report.json
 
-       - uses: actions/upload-artifact@v3
-         with:
-         name: remark-lint-report
-         path: remark-lint-report.json
+    uses: actions/upload-artifact@v3
+     with:
+          name: remark-lint-report
+          path: remark-lint-report.json
